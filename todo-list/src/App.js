@@ -22,7 +22,19 @@ function App(){
     const newTodos = [...todos];
     newTodos[index].isCompleted = true; //render selected todo [index] is completed
     setTodos(newTodos);
-  }
+  };
+
+  const uncompleteTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = false; //render selected todo [index] is completed
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index,1); //replace index - basically push the rest of todos up the array
+    setTodos(newTodos);
+  };
 
   //template
   return (
@@ -36,6 +48,8 @@ function App(){
       key = {index}
       index = {index}
       completeTodo = {completeTodo}
+      uncompleteTodo = {uncompleteTodo}
+      removeTodo = {removeTodo}
       /> //loop through the variables and print them all out
     ))}
     <TodoForm addTodo = {addTodo}/>
